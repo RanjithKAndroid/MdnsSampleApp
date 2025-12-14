@@ -1,10 +1,10 @@
-package com.example.myapplication
+package com.example.myapplication.ui.auth
 
 import android.content.Intent
 import android.os.Bundle
-import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
-import com.example.myapplication.Utils.isNetworkAvailable
+import com.example.myapplication.ui.dashboard.DashboardActivity
+import com.example.myapplication.util.Utils.isNetworkAvailable
 
 class SplashActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {

@@ -1,11 +1,12 @@
-package com.example.myapplication
+package com.example.myapplication.ui.auth
 
 import android.content.Intent
 import android.os.Bundle
 import android.widget.Button
-import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.edit
+import com.example.myapplication.ui.dashboard.DashboardActivity
+import com.example.myapplication.R
 
 class LoginActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {

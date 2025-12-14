@@ -1,10 +1,12 @@
-package com.example.myapplication
+package com.example.myapplication.ui.dashboard
 
+import android.R
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import com.example.myapplication.data.local.DeviceEntity
 
 class DeviceAdapter(private val deviceEntityList: MutableList<DeviceEntity>, private val onClick:
 (DeviceEntity)-> Unit): RecyclerView.Adapter<DeviceAdapter.DeviceViewHolder>(){
@@ -12,7 +14,7 @@ class DeviceAdapter(private val deviceEntityList: MutableList<DeviceEntity>, pri
         parent: ViewGroup,
         viewType: Int
     ): DeviceViewHolder {
-        val  view = LayoutInflater.from(parent.context).inflate(android.R.layout.simple_list_item_1,parent,false)
+        val  view = LayoutInflater.from(parent.context).inflate(R.layout.simple_list_item_1,parent,false)
         return DeviceViewHolder(view)
     }
 
@@ -31,7 +33,7 @@ class DeviceAdapter(private val deviceEntityList: MutableList<DeviceEntity>, pri
     }
 
     class DeviceViewHolder(view: View) : RecyclerView.ViewHolder(view){
-        val deviceDetail: TextView = view.findViewById(android.R.id.text1)
+        val deviceDetail: TextView = view.findViewById(R.id.text1)
     }
 
     fun updateList(updatedDeviceEntityList: List<DeviceEntity>){

@@ -1,17 +1,19 @@
-package com.example.myapplication
+package com.example.myapplication.ui.dashboard
 
-import android.content.Context
 import android.content.Intent
 import android.net.nsd.NsdManager
 import android.net.nsd.NsdServiceInfo
 import android.os.Build
 import android.os.Bundle
 import android.util.Log
-import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.example.myapplication.ui.detail.DetailActivity
+import com.example.myapplication.R
+import com.example.myapplication.data.local.AppDatabase
+import com.example.myapplication.data.local.DeviceEntity
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
@@ -184,9 +186,11 @@ class DashboardActivity : AppCompatActivity() {
                         val ipAddress = addresses.firstOrNull()?.hostAddress?:return
                         //val port = nsdServiceInfo.port
 
-                        val deviceEntity = DeviceEntity(deviceIPAddress = ipAddress,
+                        val deviceEntity = DeviceEntity(
+                            deviceIPAddress = ipAddress,
                             deviceName = nsdServiceInfo.serviceName,
-                            deviceStatus = "ONLINE")
+                            deviceStatus = "ONLINE"
+                        )
                         lifecycleScope.launch {
                             val updated = withContext(Dispatchers.IO) {
                                 database.deviceDao().insertDevices(deviceEntity)
@@ -209,9 +213,11 @@ class DashboardActivity : AppCompatActivity() {
                         val ipAddress = nsdServiceInfo.host?.hostAddress?:return
                         val port = nsdServiceInfo.port
 
-                        val deviceEntity = DeviceEntity(deviceIPAddress = ipAddress,
+                        val deviceEntity = DeviceEntity(
+                            deviceIPAddress = ipAddress,
                             deviceName = nsdServiceInfo.serviceName,
-                            deviceStatus = "ONLINE")
+                            deviceStatus = "ONLINE"
+                        )
                         lifecycleScope.launch {
                             val updated = withContext(Dispatchers.IO) {
                                 database.deviceDao().insertDevices(deviceEntity)
